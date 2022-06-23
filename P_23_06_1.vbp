@@ -1,7 +1,9 @@
 Type=Exe
 Form=Display.frm
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\WINDOWS\system32\stdole2.tlb#OLE Automation
+IconForm="Display"
 Startup="Display"
+ExeName32="P_23_06_1.exe"
 Command32=""
 Name="Project1"
 HelpContextID="0"
