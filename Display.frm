@@ -9,24 +9,47 @@ Begin VB.Form Display
    ScaleHeight     =   3090
    ScaleWidth      =   4680
    StartUpPosition =   3  'Windows Default
+   Begin VB.TextBox Text1 
+      Height          =   375
+      Left            =   720
+      TabIndex        =   2
+      Top             =   1440
+      Width           =   2175
+   End
    Begin VB.ComboBox Combo1 
       Height          =   315
       Left            =   720
       TabIndex        =   1
       Text            =   "Combo1"
-      Top             =   240
+      Top             =   600
       Width           =   2415
    End
    Begin VB.Timer Timer1 
-      Left            =   240
+      Left            =   0
       Top             =   2400
+   End
+   Begin VB.Label Label3 
+      Caption         =   "Label3"
+      Height          =   375
+      Left            =   720
+      TabIndex        =   4
+      Top             =   1080
+      Width           =   2055
+   End
+   Begin VB.Label Label2 
+      Caption         =   "Label2"
+      Height          =   375
+      Left            =   720
+      TabIndex        =   3
+      Top             =   120
+      Width           =   2175
    End
    Begin VB.Label Label1 
       Caption         =   "Label1"
       Height          =   375
-      Left            =   1200
+      Left            =   720
       TabIndex        =   0
-      Top             =   1080
+      Top             =   2280
       Width           =   2055
    End
 End
@@ -42,6 +65,8 @@ Private Const Ottova = 4
 Private Const Pekin = 5
 
 Dim SelectedCity As Integer
+Dim TimeZone As String
+Dim Zone As Integer
 
 Private Sub Form_Load()
 
@@ -61,7 +86,11 @@ Private Sub Form_Load()
 
     End With
     
-
+    Label2.Caption = "Select City"
+    
+    Label3.Caption = "Enter Current Timezone"
+    
+    TimeZone = ""
 
     Timer1.Interval = 60
 End Sub
@@ -93,31 +122,31 @@ Private Function GetCurrentTime(City As Integer, Hour As String, Minute As Strin
 
     If City = Istanbul Then
     
-        Hour = Hour + 3
+        Hour = Hour - Zone + 3
         Minute = Minute
         Second = Second
     
     ElseIf City = Berlin Then
     
-        Hour = Hour + 2
+        Hour = Hour - Zone + 2
         Minute = Minute
         Second = Second
     
     ElseIf City = London Then
     
-        Hour = Hour + 1
+        Hour = Hour - Zone + 1
         Minute = Minute
         Second = Second
     
     ElseIf City = Ottova Then
     
-        Hour = Hour - 4
+        Hour = Hour - Zone - 4
         Minute = Minute
         Second = Second
     
     ElseIf City = Pekin Then
     
-        Hour = Hour + 8
+        Hour = Hour - Zone + 8
         Minute = Minute
         Second = Second
     
@@ -156,6 +185,28 @@ Private Sub Combo1_Click()
     ElseIf Combo1.Text = "Pekin" Then
         SelectedCity = Pekin
     End If
+End Sub
+
+
+Private Sub Text1_KeyDown(KeyCode As Integer, Shift As Integer)
+
+    
+
+    If KeyCode = vbKeyReturn Then
+    
+        TimeZone = Text1.Text
+        If Not TimeZone = "" Then
+            If TimeZone > 0 Then
+                TimeZone = Replace(TimeZone, "+", "")
+                Zone = Val(TimeZone)
+            Else
+                TimeZone = Replace(TimeZone, "-", "")
+                Zone = 0 - Val(TimeZone)
+            End If
+        End If
+
+    End If
+
 End Sub
 
 
