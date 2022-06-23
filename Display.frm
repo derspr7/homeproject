@@ -1,55 +1,55 @@
 VERSION 5.00
 Begin VB.Form Display 
    Caption         =   "Form1"
-   ClientHeight    =   3090
+   ClientHeight    =   1815
    ClientLeft      =   60
    ClientTop       =   450
-   ClientWidth     =   4680
+   ClientWidth     =   4455
    LinkTopic       =   "Form1"
-   ScaleHeight     =   3090
-   ScaleWidth      =   4680
+   ScaleHeight     =   1815
+   ScaleWidth      =   4455
    StartUpPosition =   3  'Windows Default
    Begin VB.TextBox Text1 
       Height          =   375
-      Left            =   720
+      Left            =   2400
       TabIndex        =   2
-      Top             =   1440
-      Width           =   2175
+      Top             =   600
+      Width           =   1695
    End
    Begin VB.ComboBox Combo1 
       Height          =   315
-      Left            =   720
+      Left            =   360
       TabIndex        =   1
       Text            =   "Combo1"
       Top             =   600
-      Width           =   2415
+      Width           =   1935
    End
    Begin VB.Timer Timer1 
-      Left            =   0
-      Top             =   2400
+      Left            =   120
+      Top             =   1200
    End
    Begin VB.Label Label3 
       Caption         =   "Label3"
       Height          =   375
-      Left            =   720
+      Left            =   2520
       TabIndex        =   4
-      Top             =   1080
-      Width           =   2055
+      Top             =   120
+      Width           =   1575
    End
    Begin VB.Label Label2 
       Caption         =   "Label2"
       Height          =   375
-      Left            =   720
+      Left            =   480
       TabIndex        =   3
       Top             =   120
-      Width           =   2175
+      Width           =   1815
    End
    Begin VB.Label Label1 
       Caption         =   "Label1"
       Height          =   375
-      Left            =   720
+      Left            =   1800
       TabIndex        =   0
-      Top             =   2280
+      Top             =   1320
       Width           =   2055
    End
 End
